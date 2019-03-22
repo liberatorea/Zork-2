@@ -22,9 +22,9 @@ import javafx.stage.Stage;
  */
 class Passage extends GridPane {
 	String body;
-	String name;
 	private ArrayList<String> options = new ArrayList<>();
-	private int i = 1;
+	private ArrayList<String> inventory = new ArrayList<>();
+	private int i = 0;
 
 	/*
 	 * 
@@ -33,18 +33,43 @@ class Passage extends GridPane {
 		Path filepath = Paths.get(getClass().getResource(String.format("/story/%s.txt", name)).toURI());
 		List<String> lines = Files.readAllLines(filepath);
 		StringBuilder sb = new StringBuilder();
+
 		
-		while (!lines.get(i).equals("Buttons:")) {
-			sb.append(lines.get(i));
-			sb.append(System.getProperty("line.separator"));
-			body = sb.toString();
-			i++;
-		}
-
-		i++;
-
-		while (!lines.get(i).equals("End")) {
-			options.add(lines.get(i));
+		//Goes through the text file and then gets each part and assigns/formats it where necessary.
+		while(!lines.get(i).equals("Fin;")) {
+			
+			if(lines.get(i).equals("Output;")) {
+		
+				i++;
+				
+				while(!lines.get(i).equals("End;")) {
+					sb.append(lines.get(i));
+					sb.append(System.getProperty("line.separator"));
+					body = sb.toString();
+					i++;
+				}
+			}
+			
+			if(lines.get(i).equals("Buttons;")) {
+				
+				i++;
+				
+				while(!lines.get(i).equals("End;")) {
+					options.add(lines.get(i));
+					i++;
+				}
+			}
+			
+			if(lines.get(i).equals("Inventory;")) {
+				
+				i++;
+				
+				while(!lines.get(i).equals("End;")) {
+					inventory.add(lines.get(i));
+					i++;
+				}
+			}
+			//If we add more parts to the text file you would add the if while methods here
 			i++;
 		}
 	}
@@ -59,12 +84,15 @@ class Passage extends GridPane {
 	public String getBody() {
 		return body;
 	}
-}
-
-class ButtonTypes extends Button{
-	public ButtonTypes() {
-		
+	
+	public List<String> getInv() {
+		return inventory;
 	}
+
+//Here is where we will change things about the program.
+
+
+
 }
 
 /*
@@ -78,17 +106,21 @@ public class Zork2 extends Application {
 	 * 
 	 */
 	
+	Scene scene1, scene2;
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		GridPane gridTest = new GridPane();
 		gridTest.setAlignment(Pos.CENTER);
 		gridTest.setVgap(10);
 		gridTest.setHgap(40);
-		
-		
-		Passage passage = new Passage("test");
+
+		Passage passage = new Passage("test2");
 		List<String> buttons = passage.getList();
 		String body = passage.getBody();
+
+		// Through options I now have a list of button names. Using these button names I
+		// will get the button from its own ??? (decide later) From there buttons will
+		// call eachother changing what is displayed and outputted
 
 		/*
 		 * here is where buttons are added to the scene
@@ -103,22 +135,33 @@ public class Zork2 extends Application {
 			}
 		}
 
-		BorderPane pane = new BorderPane();
-
+		BorderPane intro = new BorderPane();
+		Text introText = new Text("Work in progress");
+		MyButton button2 = new MyButton("Begin");
+		
+		introText.setStyle("-fx-font-size: 22pt;");
+		intro.setCenter(introText);
+		intro.setBottom(button2);
+		
+		scene1= new Scene(intro, 920,600);
+		
 		/*
 		 * here is where the output is put into a scene and made so it is scrollable.
 		 */
+		
 		Text bodyText = new Text(body);
 		TextFlow textFlow = new TextFlow(bodyText);
 		ScrollPane scrollPane = new ScrollPane(textFlow);
 		scrollPane.setFitToHeight(true);
 		scrollPane.setFitToWidth(true);
 
+		BorderPane pane = new BorderPane();
 		pane.setBottom(gridTest);
 		pane.setCenter(scrollPane);
 		pane.setRight(null);
+		scene2 = new Scene(pane, 920, 600);
 
-		primaryStage.setScene(new Scene(pane, 920, 600));
+		primaryStage.setScene(scene2);
 		primaryStage.setResizable(false);
 		primaryStage.show();
 	}
