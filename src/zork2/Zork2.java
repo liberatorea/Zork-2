@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -17,6 +19,7 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 
+//To do, use gridpane add and remove. will remove all buttons from the bottom part of the gridpane and then add the new button, rinse and repeat.
 /*
  * 
  */
@@ -25,7 +28,10 @@ class Passage extends GridPane {
 	private ArrayList<String> options = new ArrayList<>();
 	private ArrayList<String> inventory = new ArrayList<>();
 	private int i = 0;
-
+	
+	
+	
+	
 	/*
 	 * 
 	 */
@@ -34,42 +40,42 @@ class Passage extends GridPane {
 		List<String> lines = Files.readAllLines(filepath);
 		StringBuilder sb = new StringBuilder();
 
-		
-		//Goes through the text file and then gets each part and assigns/formats it where necessary.
-		while(!lines.get(i).equals("Fin;")) {
-			
-			if(lines.get(i).equals("Output;")) {
-		
+		// Goes through the text file and then gets each part and assigns/formats it
+		// where necessary.
+		while (!lines.get(i).equals("Fin;")) {
+
+			if (lines.get(i).equals("Output;")) {
+
 				i++;
-				
-				while(!lines.get(i).equals("End;")) {
+
+				while (!lines.get(i).equals("End;")) {
 					sb.append(lines.get(i));
 					sb.append(System.getProperty("line.separator"));
 					body = sb.toString();
 					i++;
 				}
 			}
-			
-			if(lines.get(i).equals("Buttons;")) {
-				
+
+			if (lines.get(i).equals("Buttons;")) {
+
 				i++;
-				
-				while(!lines.get(i).equals("End;")) {
+
+				while (!lines.get(i).equals("End;")) {
 					options.add(lines.get(i));
 					i++;
 				}
 			}
-			
-			if(lines.get(i).equals("Inventory;")) {
-				
+
+			if (lines.get(i).equals("Inventory;")) {
+
 				i++;
-				
-				while(!lines.get(i).equals("End;")) {
+
+				while (!lines.get(i).equals("End;")) {
 					inventory.add(lines.get(i));
 					i++;
 				}
 			}
-			//If we add more parts to the text file you would add the if while methods here
+			// If we add more parts to the text file you would add the if while methods here
 			i++;
 		}
 	}
@@ -84,14 +90,12 @@ class Passage extends GridPane {
 	public String getBody() {
 		return body;
 	}
-	
+
 	public List<String> getInv() {
 		return inventory;
 	}
 
 //Here is where we will change things about the program.
-
-
 
 }
 
@@ -105,16 +109,18 @@ public class Zork2 extends Application {
 	 * the right.
 	 * 
 	 */
-	
+
 	Scene scene1, scene2;
+
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		GridPane gridTest = new GridPane();
 		gridTest.setAlignment(Pos.CENTER);
 		gridTest.setVgap(10);
 		gridTest.setHgap(40);
+		List<Button> list = new ArrayList<Button>();
 
-		Passage passage = new Passage("test2");
+		Passage passage = new Passage("test");
 		List<String> buttons = passage.getList();
 		String body = passage.getBody();
 
@@ -127,6 +133,7 @@ public class Zork2 extends Application {
 		 */
 		for (int i = 0; i < buttons.size(); i++) {
 			MyButton button = new MyButton(buttons.get(i));
+			list.add(button);
 
 			if (i <= 3) {
 				gridTest.add(button, i, 0);
@@ -135,20 +142,34 @@ public class Zork2 extends Application {
 			}
 		}
 
+		Button[] buttonArray = new Button[list.size()];
+		for (int i = 0; i < list.size(); i++) {
+			buttonArray[i] = list.get(i);
+		}
+
 		BorderPane intro = new BorderPane();
 		Text introText = new Text("Work in progress");
 		MyButton button2 = new MyButton("Begin");
-		
+
 		introText.setStyle("-fx-font-size: 22pt;");
 		intro.setCenter(introText);
 		intro.setBottom(button2);
+
+		scene1 = new Scene(intro, 920, 600);
+
 		
-		scene1= new Scene(intro, 920,600);
+		for (int i = 0; i < buttonArray.length; i++) {
+			buttonArray[i].setOnAction(e -> {
+				(((Button) e.getSource()).getText());
+			});
+		}
 		
+	
+
 		/*
 		 * here is where the output is put into a scene and made so it is scrollable.
 		 */
-		
+
 		Text bodyText = new Text(body);
 		TextFlow textFlow = new TextFlow(bodyText);
 		ScrollPane scrollPane = new ScrollPane(textFlow);
@@ -165,7 +186,8 @@ public class Zork2 extends Application {
 		primaryStage.setResizable(false);
 		primaryStage.show();
 	}
-
+	
+	
 	/*
 	 * 
 	 */

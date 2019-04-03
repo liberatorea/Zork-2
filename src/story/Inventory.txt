@@ -1,6 +1,8 @@
 Output:
+You opem your bag
 Buttons:
 Car
 Hat
 Gun
 End
+What they do;
