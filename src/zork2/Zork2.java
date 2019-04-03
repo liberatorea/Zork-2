@@ -157,7 +157,7 @@ public class Zork2 extends Application {
 
 		scene1 = new Scene(intro, 920, 600);
 
-		
+		//thingy magig
 		for (int i = 0; i < buttonArray.length; i++) {
 			buttonArray[i].setOnAction(e -> {
 				(((Button) e.getSource()).getText());
