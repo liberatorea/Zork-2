@@ -1,53 +1,114 @@
-Output:
-All
+Output;
+by
+all
+known
+laws
 of
-this
-will
-output
+aviation
+a
+bee
+should
+not
+fly
+its
+little
+wings
+are
+too
+small
 to
-console
-Buttons:
-These
-will
-be
-buttons
-End
-
-Anything bellow end should not be used in the program.
-
-For output it is self explanatory, it is what will be outputted to the console. There should not be a new line between Output and Buttons.
-
-Buttons is what will be made into buttons. There should be a maximum of 8 at all times. There should not be a new line between Buttons and end as it would be made into a button. 
-
-Bellow will be a list of predefined buttons that will work:
-Run
-Attack
-Items
-Magic
-Explore
-Places
-Areas
+get
+its
+big
+body
+off
+the
+ground
+but
+the
+bee
+doesnt
+care
+it
+flys
+anyways.
+I
+Will 
+now
+add
+whitespace
 
 
 
 
 
-Alt 2?:
-Output: <--- would find this line in a loop that goes through all the lines
-text that is outputed
-End; <---- would signify the end of output
 
-Buttons: <----- finds button in for loop
-button 1
-2
-3
-4
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+and now I will write an essay because I want to test the scroll feature and wrap text thingy because otherwise I would have 2 scroll bars and I dont want that because it is ungly and theoajdfkhdkvfbjxkjbvkhgbzskjlzbfszbk
+
+Now what hapens if its to biiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiig
+
 End;
 
-Inventory:
-cat
-gun
-hat
+Buttons;
+Button 1
+Button 2
+Inventory
+Attack
+Explore
+6
+7
+8
+End;
+
+Inventory;
+Hat
+Car
+Cat
 End;
 
 Fin;
