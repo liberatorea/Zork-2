@@ -6,13 +6,14 @@ import java.util.List;
 public class Event {
 		
 		public static int[][] gameBoard;
-		public static List<List<Integer>> coOrds;
+		public static ArrayList<ArrayList<Integer>> coOrds;
 		public static int x;
 		public static int y;
 		public static Inventory inventory;
 		
 	public Event() {
-		gameBoard = new int[][] {{0, 2, 0, 0, 0}, {2, 0, 0, 0, 0}, {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}};
+		gameBoard = new int[][] {{2, 2, 0, 0, 0}, {2, 0, 0, 0, 0}, {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}};
+		coOrds = new ArrayList<ArrayList<Integer>>();
 		inventory = new Inventory();
 		for (int i = 0; i < 5; i++) {
 			ArrayList<Integer> temp = new ArrayList<>();

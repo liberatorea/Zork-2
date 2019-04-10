@@ -27,7 +27,7 @@ public class Inventory {
 		StringBuilder sb = new StringBuilder();
 		
 		int i = 0;
-		while(!lines.get(i).equals("Fin;")) {
+		while(!lines.get(i).equals("End;")) {
 			if (lines.get(i).equals(object)) {
 				lines.get(i).replaceAll(String.format("%s.*", object), String.format("%s: %d", object, Integer.valueOf(object)));
 			}

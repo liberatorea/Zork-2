@@ -33,6 +33,7 @@ class Passage extends GridPane {
 	 * 
 	 */
 	public Passage(String name) throws Exception {
+		
 		Path filepath = Paths.get(getClass().getResource(String.format("/story/%s.txt", name)).toURI());
 		List<String> lines = Files.readAllLines(filepath);
 		StringBuilder sb = new StringBuilder();
@@ -172,6 +173,7 @@ public class Zork2 extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		Passage passage = new Passage("test");
+		
 
 		GridPane gridTest = new GridPane();
 		gridTest.setAlignment(Pos.CENTER);
@@ -211,6 +213,7 @@ public class Zork2 extends Application {
 		pane.setTop(introText);
 		pane.setCenter(button2);
 		BorderPane.setAlignment(introText, Pos.CENTER);
+		
 
 		button2.setOnAction(e -> {
 			pane.getChildren().clear();
@@ -223,8 +226,6 @@ public class Zork2 extends Application {
 			pane.setBottom(gridTest);
 			pane.setCenter(scrollPane);
 			pane.setRight(null);
-			
-			Event game = new Event();
 		});
 
 		for (int i = 0; i < buttonArray.length; i++) {
@@ -248,7 +249,8 @@ public class Zork2 extends Application {
 	/*
 	 * 
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
+		
 		launch(args);
 	}
 }
