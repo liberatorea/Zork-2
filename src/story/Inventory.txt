@@ -7,7 +7,12 @@ of
 
 
 
-
+Potions:
+Swords:
+Daggers:
+Leg Armor:
+Torso Armor:
+Helmet:
 
 
 

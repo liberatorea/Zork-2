@@ -223,6 +223,8 @@ public class Zork2 extends Application {
 			pane.setBottom(gridTest);
 			pane.setCenter(scrollPane);
 			pane.setRight(null);
+			
+			Event game = new Event();
 		});
 
 		for (int i = 0; i < buttonArray.length; i++) {
