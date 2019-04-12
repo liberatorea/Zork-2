@@ -4,6 +4,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
@@ -26,6 +27,7 @@ import javafx.stage.Stage;
  */
 class Passage extends GridPane {
 	String body;
+
 	private ArrayList<String> options = new ArrayList<>();
 	private ArrayList<String> inventory = new ArrayList<>();
 	private int i = 0;
@@ -109,20 +111,29 @@ public class Zork2 extends Application {
 	 */
 	Scene scene;
 	BorderPane pane;
+	List<String> array = new ArrayList<>(Arrays.asList("test"));
+	int itteration = 0;
 
-	/* this is what causes new scenes to be made. It takes the name of a clicked
-	* button and then fetches the file with the corresponding name before repeating
-	* the process.
-	*/
+	/*
+	 * this is what causes new scenes to be made. It takes the name of a clicked
+	 * button and then fetches the file with the corresponding name before repeating
+	 * the process.
+	 */
 	public void changeScene(String name) {
+		if (name.equals("back")) {
+			name = array.get(itteration - 1);
+			if(name.equals("back")) {
+				name = array.get(itteration - 1);
+			}
+		}
 		try {
-			if(name.equals("explore")) {
+			if (name.equals("explore")) {
 				double ran = Math.random();
-				if(ran > .5) {
-					name = "enemy"; 
+				if (ran > .5) {
+					name = "enemy";
 				}
 			}
-			
+			array.add(name);
 			Passage passage = new Passage(name);
 			pane.getChildren().clear();
 			GridPane gridTest = new GridPane();
@@ -162,6 +173,8 @@ public class Zork2 extends Application {
 			pane.setCenter(scrollPane);
 			pane.setRight(null);
 			scene.setRoot(pane);
+			
+			itteration++;
 
 			for (int i = 0; i < buttonArray.length; i++) {
 				int _i = i;
@@ -180,7 +193,7 @@ public class Zork2 extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		Passage passage = new Passage("test");
-		
+
 		GridPane gridTest = new GridPane();
 		gridTest.setAlignment(Pos.CENTER);
 		gridTest.setVgap(10);
@@ -231,8 +244,7 @@ public class Zork2 extends Application {
 			pane.setBottom(gridTest);
 			pane.setCenter(scrollPane);
 			pane.setRight(null);
-			
-			
+
 		});
 
 		for (int i = 0; i < buttonArray.length; i++) {
