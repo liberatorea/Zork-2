@@ -1,0 +1,23 @@
+Output;
+A goblin hopes out in front of you, dagger at the ready.
+End;
+
+Buttons;
+Attack
+Block
+Inventory
+Run
+End;
+
+Health;
+10
+End;
+
+Attack;
+1
+End;
+
+
+Fin;
+
+a

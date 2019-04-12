@@ -1,0 +1,12 @@
+Output;
+You walk around for a while, finding nothing.
+End;
+
+Buttons;
+Inventory
+back
+End;
+
+Fin;
+
+a

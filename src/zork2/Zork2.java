@@ -5,6 +5,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -28,10 +29,7 @@ class Passage extends GridPane {
 	private ArrayList<String> options = new ArrayList<>();
 	private ArrayList<String> inventory = new ArrayList<>();
 	private int i = 0;
-	
-	
-	
-	
+
 	/*
 	 * 
 	 */
@@ -109,18 +107,85 @@ public class Zork2 extends Application {
 	 * the right.
 	 * 
 	 */
+	Scene scene;
+	BorderPane pane;
 
-	Scene scene1, scene2;
+	/* this is what causes new scenes to be made. It takes the name of a clicked
+	* button and then fetches the file with the corresponding name before repeating
+	* the process.
+	*/
+	public void changeScene(String name) {
+		try {
+			if(name.equals("explore")) {
+				double ran = Math.random();
+				if(ran > .5) {
+					name = "enemy"; 
+				}
+			}
+			
+			Passage passage = new Passage(name);
+			pane.getChildren().clear();
+			GridPane gridTest = new GridPane();
+			gridTest.setAlignment(Pos.CENTER);
+			gridTest.setVgap(10);
+			gridTest.setHgap(40);
+			List<Button> list = new ArrayList<Button>();
+			List<String> buttons = passage.getList();
+			String body = passage.getBody();
+
+			for (int i = 0; i < buttons.size(); i++) {
+				MyButton button = new MyButton(buttons.get(i));
+				list.add(button);
+
+				if (i <= 3) {
+					gridTest.add(button, i, 0);
+				} else {
+					gridTest.add(button, i - 4, 1);
+				}
+			}
+
+			Button[] buttonArray = new Button[list.size()];
+			for (int i = 0; i < list.size(); i++) {
+				buttonArray[i] = list.get(i);
+			}
+
+			pane = new BorderPane();
+
+			pane.getChildren().clear();
+			Text bodyText = new Text(body);
+			TextFlow textFlow = new TextFlow(bodyText);
+			ScrollPane scrollPane = new ScrollPane(textFlow);
+			scrollPane.setFitToHeight(true);
+			scrollPane.setFitToWidth(true);
+
+			pane.setBottom(gridTest);
+			pane.setCenter(scrollPane);
+			pane.setRight(null);
+			scene.setRoot(pane);
+
+			for (int i = 0; i < buttonArray.length; i++) {
+				int _i = i;
+				buttonArray[i].setOnAction(e -> {
+					changeScene(buttonArray[_i].getText());
+				});
+			}
+
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
+		Passage passage = new Passage("test");
+		
 		GridPane gridTest = new GridPane();
 		gridTest.setAlignment(Pos.CENTER);
 		gridTest.setVgap(10);
 		gridTest.setHgap(40);
 		List<Button> list = new ArrayList<Button>();
-
-		Passage passage = new Passage("test");
 		List<String> buttons = passage.getList();
 		String body = passage.getBody();
 
@@ -147,51 +212,52 @@ public class Zork2 extends Application {
 			buttonArray[i] = list.get(i);
 		}
 
-		BorderPane intro = new BorderPane();
-		Text introText = new Text("Work in progress");
+		pane = new BorderPane();
+		Text introText = new Text("Welcome to the game");
 		MyButton button2 = new MyButton("Begin");
-
 		introText.setStyle("-fx-font-size: 22pt;");
-		intro.setCenter(introText);
-		intro.setBottom(button2);
+		pane.setTop(introText);
+		pane.setCenter(button2);
+		BorderPane.setAlignment(introText, Pos.CENTER);
 
-		scene1 = new Scene(intro, 920, 600);
+		button2.setOnAction(e -> {
+			pane.getChildren().clear();
+			Text bodyText = new Text(body);
+			TextFlow textFlow = new TextFlow(bodyText);
+			ScrollPane scrollPane = new ScrollPane(textFlow);
+			scrollPane.setFitToHeight(true);
+			scrollPane.setFitToWidth(true);
 
-		//thingy magig
+			pane.setBottom(gridTest);
+			pane.setCenter(scrollPane);
+			pane.setRight(null);
+			
+			
+		});
+
 		for (int i = 0; i < buttonArray.length; i++) {
+			int _i = i;
 			buttonArray[i].setOnAction(e -> {
-				(((Button) e.getSource()).getText());
+				changeScene(buttonArray[_i].getText());
 			});
 		}
-		
-	
 
 		/*
 		 * here is where the output is put into a scene and made so it is scrollable.
 		 */
 
-		Text bodyText = new Text(body);
-		TextFlow textFlow = new TextFlow(bodyText);
-		ScrollPane scrollPane = new ScrollPane(textFlow);
-		scrollPane.setFitToHeight(true);
-		scrollPane.setFitToWidth(true);
+		scene = new Scene(pane, 920, 600);
 
-		BorderPane pane = new BorderPane();
-		pane.setBottom(gridTest);
-		pane.setCenter(scrollPane);
-		pane.setRight(null);
-		scene2 = new Scene(pane, 920, 600);
-
-		primaryStage.setScene(scene2);
+		primaryStage.setScene(scene);
 		primaryStage.setResizable(false);
 		primaryStage.show();
 	}
-	
-	
+
 	/*
 	 * 
 	 */
 	public static void main(String[] args) {
 		launch(args);
 	}
-}
+}//
+//This is not working

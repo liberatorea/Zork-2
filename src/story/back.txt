@@ -1,0 +1,24 @@
+Output;
+You open your inventory
+
+End;
+
+Buttons;
+explore
+Inventory
+End;
+
+Inventory;
+thing 1 
+2
+3
+4
+End;
+
+Fin;
+
+
+
+
+
+a
