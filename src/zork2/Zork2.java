@@ -113,6 +113,7 @@ public class Zork2 extends Application {
 	BorderPane pane;
 	List<String> array = new ArrayList<>(Arrays.asList("test"));
 	int itteration = 0;
+	boolean fail = false;
 
 	/*
 	 * this is what causes new scenes to be made. It takes the name of a clicked
@@ -126,6 +127,24 @@ public class Zork2 extends Application {
 				name = array.get(itteration - 1);
 			}
 		}
+		
+		if(name.equals("Next") && fail == false){
+			name = "test";
+		}
+		else if(name.equals("Next") && fail == true){
+			name = "enemy";
+		}
+		
+		if(name.equals("Run")) {
+			if(Math.random() > .5) {
+				name = "Success";
+				fail = false;
+			} else {
+				name = "Fail";
+				fail = true;
+			}
+		}
+		
 		try {
 			if (name.equals("explore")) {
 				double ran = Math.random();
@@ -226,9 +245,9 @@ public class Zork2 extends Application {
 		}
 
 		pane = new BorderPane();
-		Text introText = new Text("Welcome to the game");
+		Text introText = new Text("\n\n\nWelcome to the game");
 		MyButton button2 = new MyButton("Begin");
-		introText.setStyle("-fx-font-size: 22pt;");
+		introText.setStyle("-fx-font-size: 30pt;");
 		pane.setTop(introText);
 		pane.setCenter(button2);
 		BorderPane.setAlignment(introText, Pos.CENTER);

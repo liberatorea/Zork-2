@@ -1,0 +1,9 @@
+Output;
+You fail to run away, giving the monster the upper hand.
+End;
+
+Buttons;
+Next
+End;
+
+Fin;
