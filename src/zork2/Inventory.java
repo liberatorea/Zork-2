@@ -24,11 +24,10 @@ public class Inventory {
 	public void changeInv(String object) throws Exception{
 		Path inv = Paths.get("C:/Users/granta5/git/Zork-2/src/story/Inventory.txt");
 		List<String> lines = Files.readAllLines(inv);
-		StringBuilder sb = new StringBuilder();
 		
 		int i = 0;
 		while(!lines.get(i).equals("Fin;")) {
-			if (lines.get(i).equals(object)) {
+			if (lines.get(i).equals(String.format("%s.*", object))) {
 				lines.get(i).replaceAll(String.format("%s.*", object), String.format("%s: %d", object, Integer.valueOf(object)));
 			}
 			i++;

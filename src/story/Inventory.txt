@@ -2,24 +2,5 @@ Output;
 
 You open your bag, inside you find
 
-Shining Sword
-Serated Daggers
-Leg Armor
-Torso Armor
-Helmet
-End;
-
-Buttons;
-back
-End;
-
-Inventory;
 
 End;
-
-Fin;
-
-
-
-this is a temporary file. Inventory will not actually be here.
-a
