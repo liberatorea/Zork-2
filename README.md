@@ -44,6 +44,6 @@ To begin the game, simply follow the steps as listed below:
 * Go through a short series of events
 * Interact with the world through exploration and battle
 ## Demo Video
-Video link: 
+Video link: https://youtu.be/P8mSZcAXgVg
 ## Team Members
 AJ Liberatore and Alexander Grant
