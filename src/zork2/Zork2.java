@@ -4,7 +4,9 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -25,6 +27,7 @@ import javafx.stage.Stage;
  */
 class Passage extends GridPane {
 	String body;
+
 	private ArrayList<String> options = new ArrayList<>();
 	private ArrayList<String> inventory = new ArrayList<>();
 	private int i = 0;
@@ -108,13 +111,48 @@ public class Zork2 extends Application {
 	 */
 	Scene scene;
 	BorderPane pane;
+	List<String> array = new ArrayList<>(Arrays.asList("test"));
+	int itteration = 0;
+	boolean fail = false;
 
-	/* this is what causes new scenes to be made. It takes the name of a clicked
-	* button and then fetches the file with the corresponding name before repeating
-	* the process.
-	*/
+	/*
+	 * this is what causes new scenes to be made. It takes the name of a clicked
+	 * button and then fetches the file with the corresponding name before repeating
+	 * the process.
+	 */
 	public void changeScene(String name) {
+		if (name.equals("back")) {
+			name = array.get(itteration - 1);
+			if(name.equals("back")) {
+				name = array.get(itteration - 1);
+			}
+		}
+		
+		if(name.equals("Next") && fail == false){
+			name = "test";
+		}
+		else if(name.equals("Next") && fail == true){
+			name = "enemy";
+		}
+		
+		if(name.equals("Run")) {
+			if(Math.random() > .5) {
+				name = "Success";
+				fail = false;
+			} else {
+				name = "Fail";
+				fail = true;
+			}
+		}
+		
 		try {
+			if (name.equals("explore")) {
+				double ran = Math.random();
+				if (ran > .5) {
+					name = "enemy";
+				}
+			}
+			array.add(name);
 			Passage passage = new Passage(name);
 			pane.getChildren().clear();
 			GridPane gridTest = new GridPane();
@@ -154,6 +192,8 @@ public class Zork2 extends Application {
 			pane.setCenter(scrollPane);
 			pane.setRight(null);
 			scene.setRoot(pane);
+			
+			itteration++;
 
 			for (int i = 0; i < buttonArray.length; i++) {
 				int _i = i;
@@ -205,9 +245,9 @@ public class Zork2 extends Application {
 		}
 
 		pane = new BorderPane();
-		Text introText = new Text("Work in progress");
+		Text introText = new Text("\n\n\nWelcome to the game");
 		MyButton button2 = new MyButton("Begin");
-		introText.setStyle("-fx-font-size: 22pt;");
+		introText.setStyle("-fx-font-size: 30pt;");
 		pane.setTop(introText);
 		pane.setCenter(button2);
 		BorderPane.setAlignment(introText, Pos.CENTER);
@@ -223,8 +263,7 @@ public class Zork2 extends Application {
 			pane.setBottom(gridTest);
 			pane.setCenter(scrollPane);
 			pane.setRight(null);
-			
-			Event game = new Event();
+
 		});
 
 		for (int i = 0; i < buttonArray.length; i++) {
@@ -251,4 +290,5 @@ public class Zork2 extends Application {
 	public static void main(String[] args) {
 		launch(args);
 	}
-}
+}//
+//This is not working

@@ -25,7 +25,7 @@ public class Event {
 		y = 0;
 		coOrds.get(y).set(x, 1);
 	}
-	
+	//
 	
 	public static void checkSpace() throws Exception {
 		if(coOrds.get(y).get(x) == 2) {
@@ -70,4 +70,6 @@ public class Event {
 	public static String currentPosition() {
 		return String.format("x = %d, y = %d", x, y);
 	}
+	
+	//
 }

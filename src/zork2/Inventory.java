@@ -22,7 +22,7 @@ public class Inventory {
 	}
 	
 	public void changeInv(String object) throws Exception{
-		Path inv = Paths.get("C:/Users/liberatorea/Desktop/Zork-2/src/story/Inventory.txt");
+		Path inv = Paths.get("C:/Users/granta5/git/Zork-2/src/story/Inventory.txt");
 		List<String> lines = Files.readAllLines(inv);
 		StringBuilder sb = new StringBuilder();
 		
@@ -34,7 +34,7 @@ public class Inventory {
 			i++;
 		}
 	}
-	
+	//
 	public boolean badChange(int object, int numChange) {
 		if(object + numChange < 0) {
 			return true;
@@ -109,4 +109,4 @@ public class Inventory {
 
 	}
 
-}
+}//

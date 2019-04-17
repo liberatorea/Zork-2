@@ -1,0 +1,4 @@
+Output;
+You try to run away.
+End;
+Fin;

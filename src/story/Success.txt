@@ -1,0 +1,10 @@
+Output;
+You run away successfully, your enemy disappearing into the distance.
+End;
+
+Buttons;
+Next
+End;
+
+
+Fin;

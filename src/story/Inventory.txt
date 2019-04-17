@@ -1,45 +1,20 @@
 Output;
-by
-all
-known
-laws
-of
 
+You open your bag, inside you find
 
-
-Potions:
-Swords:
-Daggers:
-Leg Armor:
-Torso Armor:
-Helmet:
-
-
-
-
-
-
-and now I will write an essay because I want to test the scroll feature and wrap text thingy because otherwise I would have 2 scroll bars and I dont want that because it is ungly and theoajdfkhdkvfbjxkjbvkhgbzskjlzbfszbk
-
-Now what hapens if its to biiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiig
-
+Shining Sword
+Serated Daggers
+Leg Armor
+Torso Armor
+Helmet
 End;
 
 Buttons;
-Button 1
-Button 2
-Inventory
-test
-Explore
-6
-7
-8
+back
 End;
 
 Inventory;
-Hat
-Car
-Cat
+
 End;
 
 Fin;
@@ -47,3 +22,4 @@ Fin;
 
 
 this is a temporary file. Inventory will not actually be here.
+a
