@@ -35,5 +35,15 @@ There will be a base code which will hold the main components of the game, all i
 1. Create simple manual
 2. Create presentation
 3. Practice presentation
+## Getting Started
+To begin the game, simply follow the steps as listed below:
+1. Open this repository in eclipse.
+2. Open the Zork2.java file.
+3. Run the program, and follow the in-game prompts.
+## Features
+* Go through a short series of events
+* Interact with the world through exploration and battle
+## Demo Video
+Video link: 
 ## Team Members
 AJ Liberatore and Alexander Grant
